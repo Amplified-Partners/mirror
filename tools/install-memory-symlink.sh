@@ -61,7 +61,10 @@ elif [ -d "$LOCAL_MEMORY" ]; then
     base="$(basename "$f")"
     case "$base" in
       *.jsonl|*.log|*.tmp|.DS_Store)
-        echo "  skip:    $base"
+        # ephemeral noise — already covered by memory/.gitignore.
+        # delete (don't just skip) so the dir can be removed and the symlink created.
+        echo "  skip+rm: $base"
+        rm -f "$f"
         continue
         ;;
     esac
