@@ -1,11 +1,17 @@
+# Dependabot config — standardised across Amplified-Partners org.
+# Schedule: weekly, Monday 09:00 UTC. Limit: 5 PRs per ecosystem.
+# Signed: Devon-80ea | 2026-05-07 | estate cleanup standardisation
 version: 2
 updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
-    groups:
-      minor-and-patch:
-        update-types:
-          - "minor"
-          - "patch"
+      day: "monday"
+      time: "09:00"
+      timezone: "Etc/UTC"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "auto-merge"
+
